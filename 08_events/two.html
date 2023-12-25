@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+    <script>
+        const btn = document.querySelector("button")
+        const SayRavi = function(){
+            console.log("Ravi Bhai");
+        }
+        const changeText = function(){
+            document.querySelector("h1").innerHTML = "Learning";
+        }
+        const changeMe = setTimeout(changeText,2000);
+        btn.addEventListener("click",()=>{
+            clearTimeout(changeMe)
+            console.log("STOPPED")
+        })
+    </script>
+</body>
+</html>
