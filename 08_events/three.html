@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+    <script>
+        const sayDate = function(str){
+            console.log(str,Date.now());
+        }
+        const intervalId = setInterval(sayDate, 1000, "hi") //this is third parameter
+        clearInterval(intervalId);
+        const start = document.querySelector("#Start")
+        const stop = document.querySelector("#Stop")
+        start.addEventListener("click", ()=>{
+            // setInterval(sayDate, 1000, "hi") //this is third parameter
+        })
+        stop.addEventListener("click", ()=>{
+            clearInterval(intervalId)
+        })
+    </script>
+</body>
+</html>
