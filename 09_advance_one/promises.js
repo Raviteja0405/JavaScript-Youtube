@@ -69,6 +69,8 @@ const promiseFive = new Promise(function (resolve, reject) {
   }, 1000);
 });
 
+// different way to execute promiseFive
+// but the problem here is we cannot gracefully handle catch -> for this we use try, catch block to gracefully handle errors
 async function consumePromiseFive() {
   try {
     const response = await promiseFive;
@@ -80,5 +82,26 @@ async function consumePromiseFive() {
 
 consumePromiseFive();
 
+// async function getAllUsers() {
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/users"); //await till fetch
+//     // const data = response.json(); // even this need to wait to convert it into json
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log("E: ", error);
+//   }
+// }
 
-//40.00
+// getAllUsers();
+
+fetch("https://api.github.com/users/Raviteja0405")
+  .then((response) => {
+    return response.json();
+  }) // the returned response.json() is handled by next .then()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.log(error));
+
+  // NOTE: even Error 404 status are counted as success i.e they wont go to rejected.
